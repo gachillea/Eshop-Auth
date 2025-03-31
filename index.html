@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Eshop</title>
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="cart.js"></script>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo"><img src="img/nike-logo.png" alt="logo"></a>
+        <nav>
+            <!-- navigation bar -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+                <a href="products.html"><button class="btn">Store</button></a>
+                <li><a href="index.html#feedback">Feedback</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icon">
+            <span><i class="fa-solid fa-heart"></i></span>
+            <span><i class="fa-solid fa-cart-shopping"></i></span>
+        </div>
+    </header>
+    <!-- stars animation -->
+    <div class="bg-animation">
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
+      <div id='stars4'></div>
+    </div><!-- / STAR ANIMATION -->
+    <main class="container">
+      <div class="wrapper">
+        <div class="quote">
+          <h1>Welcome Back to Stepwise</h1>
+          <p>Life’s too short for boring shoes. Step into style today!</p>
+        </div>
+        <div class="slider">
+          <div class="slide active">
+            <img src="img/slider1.png" alt="slider1">
+            <h1>Aether Flux</h1>
+          </div>
+          <div class="slide">
+            <img src="img/slider2.png" alt="slider2">
+            <h1>Eclipse X</h1>
+          </div>
+          <div class="slide">
+            <img src="img/slider3.png" alt="slider3">
+            <h1>VortexX</h1>
+          </div>
+          <!-- Navigation Buttons -->
+          <div class="slider-controls">
+            <button class="slider-btn prev">&#10094;</button>
+            <button class="slider-btn next">&#10095;</button>
+          </div>
+        </div>
+        <div class="scroll_down">
+          <h1>Scroll down</h1>
+          <p>\/</p>
+        </div>
+        <div class="info">
+        <!-- 3 boxes [] [] [] -->
+          <div class="card__container">
+            <article class="card__article">
+                       <div class="card__scale-1"></div>
+                       <div class="card__scale-2"></div>
+                       <div class="card__shape-1">
+                          <div class="card__shape-2"></div>
+                          <div class="card__shape-3">
+                             <i class="ri-flashlight-line card__icon"></i>
+                          </div>
+                       </div>
+                       <div class="card__data">
+                          <h2 class="card__title">Fast & Reliable Shipping</h2>
+                          <p class="card__description">
+                            Get your favorite Nike gear delivered quickly and securely. We ensure fast shipping with trusted carriers, so you can focus on your game.
+                          </p>
+                          <a href="#" class="card__button">Continue learning</a>
+                       </div>
+            </article>
+            <article class="card__article card__orange">
+                <div class="card__scale-1"></div>
+                <div class="card__scale-2"></div>
+                <div class="card__shape-1">
+                  <div class="card__shape-2"></div>
+                  <div class="card__shape-3">
+                      <i class="ri-fire-line card__icon"></i>
+                  </div>
+                </div>
+                <div class="card__data">
+                  <h2 class="card__title">100% Authentic Products</h2>
+                  <p class="card__description">
+                    Shop with confidence! Our eShop offers only genuine Nike products, directly from the brand, ensuring top quality and durability.
+                  </p>
+                  <a href="#" class="card__button">Continue learning</a>
+                </div>
+            </article>
+            <article class="card__article card__green">
+                <div class="card__scale-1"></div>
+                <div class="card__scale-2"></div>
+    
+                <div class="card__shape-1">
+                  <div class="card__shape-2"></div>
+                  <div class="card__shape-3">
+                      <i class="ri-shining-line card__icon"></i>
+                  </div>
+                </div>
+    
+                <div class="card__data">
+                  <h2 class="card__title">Easy Returns & Exchanges</h2>
+                  <p class="card__description">
+                    Not the perfect fit? No worries! Enjoy hassle-free returns and exchanges to make sure you get exactly what you need. Navigate to Contact
+                  </p>
+    
+                  <a href="#" class="card__button">Continue learning</a>
+                </div>
+            </article>
+          </div>
+        </div>
+            <a id="new-arrivals"></a>
+            <hr>
+            <div class="arrivals-line">
+                <span class="Arivalls-span">New Arrivals</span>
+                <a href="products.html"><button class="see-all">See All</button></a>
+            </div>
+            <div class="arrivalscards-container">
+                <div class="card">
+                    <img src="img/slider1.png" alt="" class="card-img">
+                    <div class="card-content">
+                        <h1 class="card-title">Nike Air Jordan</h1>
+                        <span class="card-price">$99</span>
+                        <p class="card-description">Nike Air Jordan Footwear basketball sneakers.</p>
+                        <a href="#" class="card-button">Buy Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/slider2.png" alt="" class="card-img">
+                    <div class="card-content">
+                        <h1 class="card-title">Nike Air Jordan</h1>
+                        <span class="card-price">$99</span>
+                        <p class="card-description">Nike Air Jordan Footwear basketball sneakers.</p>
+                        <a href="#" class="card-button">Buy Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/slider3.png" alt="" class="card-img">
+                    <div class="card-content">
+                        <h1 class="card-title">Nike Air Jordan</h1>
+                        <span class="card-price">$99</span>
+                        <p class="card-description">Nike Air Jordan Footwear basketball sneakers.</p>
+                        <a href="#" class="card-button">Buy Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/slider1.png" alt="" class="card-img">
+                    <div class="card-content">
+                        <h1 class="card-title">Nike Air Jordan</h1>
+                        <span class="card-price">$99</span>
+                        <p class="card-description">Nike Air Jordan Footwear basketball sneakers.</p>
+                        <a href="#" class="card-button">Buy Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/slider2.png" alt="" class="card-img">
+        
+                    <div class="card-content">
+                        <h1 class="card-title">Nike Air Jordan</h1>
+                        <span class="card-price">$99</span>
+                        <p class="card-description">Nike Air Jordan Footwear basketball sneakers.</p>
+                        <a href="#" class="card-button">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <a id="feedback"></a>
+    <hr>
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>What our <span>Customers</span> say</h2>
+          <p>Latest Feedbacks from Buyers</p>
+        </div>
+        <div class="feedback-slider">
+          <div class="feedback feedback-item active" data-index="0">
+              <div class="feedback-avatar">
+                  <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client">
+              </div>
+              <div class="feedback-content">
+                  <div class="feedback-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+                  <p>"Great selection of sneakers, but some popular sizes sell out too fast. Restocking updates or a 'Notify Me' feature would be helpful"</p>
+                  <div class="feedback-author">
+                      <h4>Alexandre S.</h4>
+                      <span>Client since 2022</span>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="feedback feedback-item" data-index="1">
+              <div class="feedback-avatar">
+                  <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client">
+              </div>
+              <div class="feedback-content">
+                  <div class="feedback-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+                  <p>"The store offers a great variety of sneakers and casual shoes. Adding more formal or athletic options could attract a wider audience."</p>
+                  <div class="feedback-author">
+                      <h4>Mariana L.</h4>
+                      <span>Client since 2023</span>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="feedback feedback-item" data-index="2">
+              <div class="feedback-avatar">
+                  <img src="https://images.unsplash.com/photo-1619895862022-09114b41f16f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client">
+              </div>
+              <div class="feedback-content">
+                  <div class="feedback-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <p>"Some prices are reasonable, while others feel a bit high. Exclusive online discounts or bundle offers could make the deals more appealing."</p>
+                  <div class="feedback-author">
+                      <h4>Rafael M.</h4>
+                      <span>Client since 2021</span>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="feedback feedback-item" data-index="3">
+              <div class="feedback-avatar">
+                  <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client">
+              </div>
+              <div class="feedback-content">
+                  <div class="feedback-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+                  <p>"Delivery was quick and hassle-free. A more flexible return policy—especially for sizing issues—would improve the overall shopping experience"</p>
+                  <div class="feedback-author">
+                      <h4>Lucas P.</h4>
+                      <span>Client since 2022</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      </section>
+      <footer>
+        <div class="footer">
+            <div class="first-part">
+                <div class="logo-footer">
+                    <img class="footer-img" src="img/nike-logo.png" alt="nike-logo">
+                    <p class="p-footer">Nikos Samaras</p>
+                </div>
+                <div class="footer-links">
+                  <div class="footer-column">
+                    <h4>Products</h4>
+                      <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">Feedback</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Contact</a></li>
+                      </ul>
+                  </div>
+                  <div class="footer-column">
+                    <h4>Something</h4>
+                      <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">Feedback</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Contact</a></li>
+                      </ul>
+                  </div>
+                  <div class="footer-column">
+                    <h4>Support</h4>
+                      <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">Feedback</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Contact</a></li>
+                      </ul>
+                  </div>
+              </div>
+            </div>
+            <hr>
+<div class="social-login-icons">
+    <div class="socialcontainer">
+      <div class="icon social-icon-1-1">
+        <svg
+          viewBox="0 0 512 512"
+          height="1.7em"
+          xmlns="http://www.w3.org/2000/svg"
+          class="svgIcontwit"
+          fill="white"
+        >
+          <path
+            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+          ></path>
+        </svg>
+      </div>
+      <div class="social-icon-1">
+        <svg
+          viewBox="0 0 512 512"
+          height="1.7em"
+          xmlns="http://www.w3.org/2000/svg"
+          class="svgIcontwit"
+          fill="white"
+        >
+          <path
+            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <div class="socialcontainer">
+      <div class="icon social-icon-2-2">
+        <svg
+          fill="white"
+          class="svgIcon"
+          viewBox="0 0 448 512"
+          height="1.5em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+          ></path>
+        </svg>
+      </div>
+      <div class="social-icon-2">
+        <svg
+          fill="white"
+          class="svgIcon"
+          viewBox="0 0 448 512"
+          height="1.5em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <div class="socialcontainer">
+      <div class="icon social-icon-3-3">
+        <svg
+          viewBox="0 0 384 512"
+          fill="white"
+          height="1.6em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+          ></path>
+        </svg>
+      </div>
+      <div class="social-icon-3">
+        <svg
+          viewBox="0 0 384 512"
+          fill="white"
+          height="1.6em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <div class="socialcontainer">
+      <div class="icon social-icon-4-4">
+        <svg fill="white" viewBox="0 0 496 512" height="1.6em">
+          <path
+            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+          ></path>
+        </svg>
+      </div>
+      <div class="social-icon-4">
+        <svg fill="white" viewBox="0 0 496 512" height="1.6em">
+          <path
+            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+    <div class="copyright">
+        ©Copyright. All rights reserved<br>
+        Nikos Samaras, Axilleas Geriogiopoulos, Giorgos Seretis
+    </div>
+</div>
+</footer>
+</body>
+</html>
