@@ -7,7 +7,11 @@ let cartOpen = false;
 function toggleCart() {
   cartOpen = !cartOpen;
   const cartDropdown = document.querySelector('.cart-dropdown');
-  cartDropdown.style.display = cartOpen ? 'block' : 'none';
+  if (cartOpen) {
+    cartDropdown.classList.add('open');
+  } else {
+    cartDropdown.classList.remove('open');
+  }
   updateCartUI();
 }
 
@@ -25,7 +29,6 @@ function addToCart(productId) {
     }
   }
   updateCartUI();
-  showCartNotification();
 }
 
 
@@ -72,19 +75,22 @@ function updateCartUI() {
   // Update cart items list
   cartItems.innerHTML = safeCart.map(item => `
     <div class="cart-item">
-      <img src="${item.image || ''}" alt="${item.name || 'Unknown'}">
+      <img class="cartitem-img" src="${item.image || ''}" alt="${item.name || 'Unknown'}">
       <div class="cart-item-details">
         <h4>${item.name || 'Unknown'}</h4>
         <div class="cart-item-controls">
-          <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
-          <span>${item.quantity}</span>
-          <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+          <div class="cart-plusminus">
+            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+          </div>
+          <button class="remove-item" onclick="removeFromCart(${item.id})">
+        <i class="fa-solid fa-trash"></i>
+      </button>
         </div>
         <span class="cart-item-price">$${((item.price || 0) * (item.quantity || 0)).toFixed(2)}</span>
       </div>
-      <button class="remove-item" onclick="removeFromCart(${item.id})">
-        <i class="fa-solid fa-trash"></i>
-      </button>
+      
     </div>
   `).join('');
 

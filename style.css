@@ -70,7 +70,7 @@ nav ul li a{
     font-weight: 900;
 }
 
-.btn {
+.btn-new{
     width: 8em;
     height: 3.5em;
     border: 3px ridge #149CEA;
@@ -83,7 +83,7 @@ nav ul li a{
     cursor: pointer;
   }
   
-  button:hover {
+.btn-new:hover {
     box-shadow: inset 0px 0px 25px #1479EA;
   }
 
@@ -495,3 +495,283 @@ footer{
     pointer-events: none;
   }
    
+
+  /* Shop Main Components */
+  .shopcard-component {
+    background-color: #fff; 
+    border-radius: 22px;
+    max-height: 100%;
+    max-width: 330px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+
+/* Image Container */
+.shop-img {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    
+}
+
+.shop-img img {
+    width: 80%;
+    max-height: 300px;  /* Adjust height to match other images */
+    object-fit: contain;  /* Prevents distortion */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Product Information */
+.product-info {
+    width: 100%;
+    background-color: #b9b9b9; /* Softer gray for a modern look */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    border-radius: 0 0 22px 22px;
+    box-sizing: border-box;
+}
+
+/* Product Name */
+.product-info h3 {
+    font-size: 1
+}
+
+.product-list{
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 15px;
+    justify-content: center;
+    display: flex;
+}
+
+.product-footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.add-to-cart{
+    margin: 10px;
+    padding: 10px;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+
+}
+
+/* Cart Menu */
+
+.cart-dropdown {
+    position: absolute;
+    top: 60px;  /* Adjust based on your layout */
+    right: 20px; /* Adjust based on your layout */
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none; /* Initially hidden, toggled via JS */
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 15px;
+    box-sizing: border-box; /* Prevents padding from affecting width */
+    max-width: 100%; /* Ensures it doesn't overflow on small screens */
+    opacity: 0;  /* Start with an invisible state */
+    transform: translateY(-20px); /* Start off 20px above the screen */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+}
+
+  .cart-dropdown.open {
+    display: block;  /* Show the dropdown */
+    opacity: 1;  /* Fade in */
+    transform: translateY(0);  /* Slide to the original position */
+}
+
+  .cart-dropdown::-webkit-scrollbar {
+    width: 8px; /* Make scrollbar thinner */
+}
+
+.cart-dropdown::-webkit-scrollbar-thumb {
+    background: #888; /* Customize the scrollbar color */
+    border-radius: 10px;
+}
+
+.cart-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker scrollbar on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .cart-dropdown {
+        width: 100%; /* Ensure it takes up full width on smaller screens */
+        max-height: 80vh; /* Limit max height to 80% of viewport height */
+        top: 10px; /* Adjust positioning on mobile */
+        right: 10px; /* Adjust positioning on mobile */
+    }
+}
+
+
+.cart-item{
+    background-color: rgb(240, 240, 240);
+    padding: 10px;  /* Adds some padding around the content */
+    margin-bottom: 10px;  /* Adds space between the items */
+    border-radius: 5px; 
+    border-bottom: 1px solid #ccc;
+    
+
+}
+  
+  .cart-dropdown.open {
+    display: block;
+  }
+  
+  .cart-dropdown .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .cart-dropdown .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .cart-dropdown .cart-item-details {
+    flex-grow: 1;
+    padding-left: 10px;
+  }
+  
+  .cart-dropdown .cart-item h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .cart-dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  .cart-item-controls{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-block: 10px;
+  }
+  
+.remove-item{
+    margin-right: 20px;
+}
+
+  .cart-dropdown .cart-item-controls button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .cart-dropdown .cart-item-controls span {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+  
+  .cart-dropdown .cart-item-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .cart-dropdown .remove-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cart-dropdown .remove-item i {
+    font-size: 16px;
+    color: #f44336;
+  }
+  
+  /* Cart count (icon badge) */
+  .cart-count {
+    position: absolute;
+    top: 0;
+    margin-top: 10px;
+    right: 8px;
+    background-color: #f44336;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: none; /* Hidden by default */
+    cursor: pointer;
+  }
+  
+  /* Total price and checkout button */
+  .cart-dropdown .cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+  }
+  
+  .cart-dropdown .checkout-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .cart-dropdown .checkout-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Small screens responsiveness */
+  @media (max-width: 768px) {
+    .cart-dropdown {
+      width: 250px;
+    }
+  }
+  
+  .fa-xmark{
+    font-size: 24px;
+    color: red;
+  }
+  
+.cart-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.cartitem-img{
+
+    max-width: 60px;
+    object-fit: contain;
+}
