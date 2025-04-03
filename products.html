@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="cart.js"></script>
     <script src="products.js"></script>
+    <script src="wishlist.js"></script>
 </head>
 
 <body>
@@ -26,11 +27,27 @@
             </ul>
         </nav>
         <div class="nav-icon">
-            <span><i class="fa-solid fa-heart"></i></span>
+            <span class="wishlist-icon" onclick="toggleWishlist()">
+                <i class="fa-solid fa-heart"></i>
+                <span class="Wishlist-count">0</span>
+            </span>
+        </div>
+        <div class="nav-icon">
             <span class="cart-icon" onclick="toggleCart()">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-count">0</span>
             </span>
+        </div>
+
+        <!-- Wishlist Dropdown -->
+        <div class="wishlist-dropdown">
+            <div class="wishlist-header">
+                <h3>Your Wishlist</h3>
+                <button onclick="toggleWishlist()" class="close-wishlist">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="wishlist-items"></div>
         </div>
         
         <!-- Cart Dropdown -->
@@ -46,8 +63,6 @@
             </div>
             <div class="cart-footer">
                 <div class="cart-total">
-                    <span>Total:</span>
-                    <span>$0.00</span>
                 </div>
                 <button class="checkout-btn">Proceed to Checkout</button>
             </div>

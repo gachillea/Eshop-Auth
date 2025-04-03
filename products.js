@@ -89,6 +89,9 @@ const products = [
             <button class="add-to-cart" onclick="addToCart(${product.id})">
               <i class="fa-solid fa-cart-plus"></i> Add to Cart
             </button>
+            <button class="add-to-wishlist" onclick="addToWishlist(${product.id})">
+              <i class="fa-solid fa-heart"></i> Add to Wishlist
+            </button>
           </div>
         </div>
       `;
