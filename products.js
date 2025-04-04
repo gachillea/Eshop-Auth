@@ -99,10 +99,9 @@ const products = [
     });
   }
   
-  // Generate star rating HTML
-  
   // Initialize products on page load
   window.onload = function() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     displayProducts();
     
     // Setup search button
