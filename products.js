@@ -1,13 +1,5 @@
 const products = [
     {
-      id: 1,
-      name: "Nike Air Max 270",
-      price: 150.00,
-      image: "img/slider1.png",
-      category: "Men's Shoes",
-      description: "The Nike Air Max 270 delivers a comfortable fit and bold style."
-    },
-    {
       id: 2,
       name: "Nike Air Force 1 '07",
       price: 110.00,
