@@ -775,3 +775,206 @@ footer{
     max-width: 60px;
     object-fit: contain;
 }
+
+/* Wishlist Menu */
+
+.wishlist-dropdown {
+    position: absolute;
+    top: 60px;  /* Adjust based on your layout */
+    right: 20px; /* Adjust based on your layout */
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none; /* Initially hidden, toggled via JS */
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 15px;
+    box-sizing: border-box; /* Prevents padding from affecting width */
+    max-width: 100%; /* Ensures it doesn't overflow on small screens */
+    opacity: 0;  /* Start with an invisible state */
+    transform: translateY(-20px); /* Start off 20px above the screen */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+}
+
+  .wishlist-dropdown.open {
+    display: block;  /* Show the dropdown */
+    opacity: 1;  /* Fade in */
+    transform: translateY(0);  /* Slide to the original position */
+}
+
+  .wishlist-dropdown::-webkit-scrollbar {
+    width: 8px; /* Make scrollbar thinner */
+}
+
+.wishlist-dropdown::-webkit-scrollbar-thumb {
+    background: #888; /* Customize the scrollbar color */
+    border-radius: 10px;
+}
+
+.wishlist-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker scrollbar on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .wishlist-dropdown {
+        width: 100%; /* Ensure it takes up full width on smaller screens */
+        max-height: 80vh; /* Limit max height to 80% of viewport height */
+        top: 10px; /* Adjust positioning on mobile */
+        right: 10px; /* Adjust positioning on mobile */
+    }
+}
+
+
+.wishlist-item{
+    background-color: rgb(240, 240, 240);
+    padding: 10px;  /* Adds some padding around the content */
+    margin-bottom: 10px;  /* Adds space between the items */
+    border-radius: 5px; 
+    border-bottom: 1px solid #ccc;
+    
+
+}
+  
+  .wishlist-dropdown.open {
+    display: block;
+  }
+  
+  .wishlist-dropdown .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .wishlist-dropdown .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .cart-dropdown .cart-item-details {
+    flex-grow: 1;
+    padding-left: 10px;
+  }
+  
+  .cart-dropdown .cart-item h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .wishlist-dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  .wishlist-item-controls{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-block: 10px;
+  }
+  
+.remove-item{
+    margin-right: 20px;
+}
+
+  .wishlist-dropdown .cart-item-controls button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .wishlist-dropdown .cart-item-controls span {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+  
+  .wishlist-dropdown .cart-item-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .wishlist-dropdown .remove-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .wishlist-dropdown .remove-item i {
+    font-size: 16px;
+    color: #f44336;
+  }
+  
+  /* Cart count (icon badge) */
+  .wishlist-count {
+    position: absolute;
+    top: 0;
+    margin-top: 10px;
+    right: 8px;
+    background-color: #f44336;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: none; /* Hidden by default */
+    cursor: pointer;
+  }
+  
+  /* Total price and checkout button */
+  .wishlist-dropdown .cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+  }
+  
+  .wishlist-dropdown .checkout-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .wishlist-dropdown .checkout-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Small screens responsiveness */
+  @media (max-width: 768px) {
+    .wishlist-dropdown {
+      width: 250px;
+    }
+  }
+  
+  .fa-xmark{
+    font-size: 24px;
+    color: red;
+  }
+  
+.wishlist-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.wishlistitem-img{
+
+    max-width: 60px;
+    object-fit: contain;
+}

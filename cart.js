@@ -1,6 +1,5 @@
 // Cart state
 const cart = [];
-
 let cartOpen = false;
 
 // Toggle cart visibility
