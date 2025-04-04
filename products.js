@@ -1,13 +1,5 @@
 const products = [
     {
-      id: 1,
-      name: "Nike Air Max 270",
-      price: 150.00,
-      image: "img/slider1.png",
-      category: "Men's Shoes",
-      description: "The Nike Air Max 270 delivers a comfortable fit and bold style."
-    },
-    {
       id: 2,
       name: "Nike Air Force 1 '07",
       price: 110.00,
@@ -99,10 +91,9 @@ const products = [
     });
   }
   
-  // Generate star rating HTML
-  
   // Initialize products on page load
   window.onload = function() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     displayProducts();
     
     // Setup search button

@@ -4,13 +4,11 @@ let wishlistOpen = false;
 
 // Toggle wishlist visibility
 function toggleWishlist() {
-    console.log("sdg")
     wishlistOpen = !wishlistOpen;
     const wishlistDropdown = document.querySelector('.wishlist-dropdown');
     if (wishlistOpen) {
         wishlistDropdown.classList.add('open');
       } else {
-        console.log("sdg")
         wishlistDropdown.classList.remove('open');
       }
     updateWishlistUI();
@@ -52,6 +50,9 @@ function updateWishlistUI() {
             <div class="wishlist-item-details">
                 <h4>${item.name}</h4>
                 <span class="price">$${item.price.toFixed(2)}</span>
+                <button onclick="addToCart(${item.id})">
+                    <i class="fa-solid fa-cart-plus"></i> Add to cart
+                </button>
                 <button onclick="removeFromWishlist(${item.id})">
                     <i class="fa-solid fa-trash"></i> Remove
                 </button>

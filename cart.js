@@ -1,5 +1,5 @@
 // Cart state
-const cart = [];
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
 let cartOpen = false;
 
 // Toggle cart visibility
@@ -35,7 +35,7 @@ function addToCart(productId) {
 function removeFromCart(productId) {
   const index = cart.findIndex(item => item.id === productId);
   if (index !== -1) {
-    cart.pop(index)
+    cart.splice(index, 1); // αφαιρεί 1 στοιχείο από τη θέση index
     updateCartUI();
   }
 }
@@ -96,4 +96,5 @@ function updateCartUI() {
   // Update total
   const total = safeCart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 0)), 0);
   cartTotal.textContent = `$${total.toFixed(2)}`;
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
