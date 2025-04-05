@@ -27,6 +27,7 @@ function addToCart(productId) {
       cart.push({...product,quantity:1});
     }
   }
+  removeFromWishlist(productId)
   updateCartUI();
 }
 
@@ -96,5 +97,14 @@ function updateCartUI() {
   // Update total
   const total = safeCart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 0)), 0);
   cartTotal.textContent = `$${total.toFixed(2)}`;
+  const cartFooter = document.querySelector('.cart-footer');
+
+cartFooter.innerHTML = `
+  <div class="cart-total">$${total.toFixed(2)}</div>
+  <a href="checkout.html">
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </a>
+`;
+
   localStorage.setItem('cart', JSON.stringify(cart));
 }

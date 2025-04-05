@@ -26,6 +26,7 @@ function addToWishlist(productId) {
 
 // Remove from wishlist
 function removeFromWishlist(productId) {
+    console.log("k")
     const index = wishlist.findIndex(item => item.id === productId);
     if (index !== -1) {
         const [removed] = wishlist.splice(index, 1);
