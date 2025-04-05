@@ -107,4 +107,5 @@ cartFooter.innerHTML = `
 `;
 
   localStorage.setItem('cart', JSON.stringify(cart));
+  updateWishlistUI();
 }
