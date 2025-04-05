@@ -18,6 +18,7 @@ function toggleWishlist() {
 function addToWishlist(productId) {
     const product = products.find(p => p.id === productId);
     if (!product || wishlist.some(item => item.id === productId)) return;
+    if(cart.find(p => p.id === productId)) return;
     
     wishlist.push(product);
     updateWishlistUI();
@@ -37,30 +38,50 @@ function removeFromWishlist(productId) {
 
 // Update wishlist UI
 function updateWishlistUI() {
-    const wishlistCount = document.querySelector('.Wishlist-count');
     const wishlistItems = document.querySelector('.wishlist-items');
-    
-    // Update counter
-    wishlistCount.textContent = wishlist.length;
-    wishlistCount.style.display = wishlist.length > 0 ? 'inline-block' : 'none';
-    
-    // Update items list
-    wishlistItems.innerHTML = wishlist.map(item => `
-        <div class="wishlist-item">
+    wishlistItems.innerHTML = ''; // Καθαρίστε τα παλιά προϊόντα
+
+    wishlist.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('wishlist-item');
+        itemElement.innerHTML = `
             <img class="wishlistitem-img" src="${item.image}" alt="${item.name}">
             <div class="wishlist-item-details">
                 <h4>${item.name}</h4>
                 <span class="price">$${item.price.toFixed(2)}</span>
-                <button onclick="addToCart(${item.id})">
-                    <i class="fa-solid fa-cart-plus"></i> Add to cart
+                <button class="add-to-cart">
+                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
                 </button>
-                <button onclick="removeFromWishlist(${item.id})">
+                <button class="remove-from-wishlist">
                     <i class="fa-solid fa-trash"></i> Remove
                 </button>
             </div>
-        </div>
-    `).join('');
+        `;
+        wishlistItems.appendChild(itemElement);
+
+        // Προσθέστε event listeners για τα κουμπιά
+        const addToCartBtn = itemElement.querySelector('.add-to-cart');
+        const removeFromWishlistBtn = itemElement.querySelector('.remove-from-wishlist');
+
+        // Ελέγξτε αν τα κουμπιά υπάρχουν πριν προσθέσετε τα event listeners
+        if (addToCartBtn) {
+            console.log("nai")
+            addToCartBtn.addEventListener('click', () => {
+                console.log(`Add ${item.name} to cart`);
+                addToCart(item.id);
+            });
+        }
+
+        if (removeFromWishlistBtn) {
+            console.log("nauo")
+            removeFromWishlistBtn.addEventListener('click', () => {
+                console.log(`Remove ${item.name} from wishlist`);
+                removeFromWishlist(item.id);
+            });
+        }
+    });
 }
+
 
 // Show notification
 function showNotification(message) {
