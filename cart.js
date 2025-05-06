@@ -15,21 +15,43 @@ function toggleCart() {
 }
 
 // Add to cart function
-function addToCart(productId) {
+async function addToCart(productId) {
+  console.log("Adding product to cart:", productId);
+  
+  // Έλεγξε αν υπάρχει ήδη στο καλάθι
   const existingItem = cart.find(item => item.id === productId);
-
+  
   if (existingItem) {
     existingItem.quantity++;
-  } else {
-    const product = products.find(item => item.id === productId)
-    if(product){
-      console.log("asfsd")
-      cart.push({...product,quantity:1});
-    }
+    updateCartUI();
+    return;
   }
-  removeFromWishlist(productId)
-  updateCartUI();
+
+  try {
+    // Φέρε το προϊόν από το backend
+    const response = await fetch(`http://localhost:5000/products/${productId}`);
+    if (!response.ok) throw new Error('Failed to fetch product');
+
+    const product = await response.json();
+
+    // Πρόσθεσε στο καλάθι
+    cart.push({
+      id: product._id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      category: product.category,
+      description: product.description,
+      likes: product.likes || 0,
+      quantity: 1
+    });
+
+    updateCartUI();
+  } catch (err) {
+    console.error('Error adding to cart:', err);
+  }
 }
+
 
 
 // Remove from cart
@@ -80,11 +102,11 @@ function updateCartUI() {
         <h4>${item.name || 'Unknown'}</h4>
         <div class="cart-item-controls">
           <div class="cart-plusminus">
-            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+            <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
             <span>${item.quantity}</span>
-            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+            <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
           </div>
-          <button class="remove-item" onclick="removeFromCart(${item.id})">
+          <button class="remove-item" onclick="removeFromCart('${item.id}')">
         <i class="fa-solid fa-trash"></i>
       </button>
         </div>
@@ -101,10 +123,17 @@ function updateCartUI() {
 
 cartFooter.innerHTML = `
   <div class="cart-total">$${total.toFixed(2)}</div>
-  <a href="checkout.html">
-    <button class="checkout-btn">Proceed to Checkout</button>
-  </a>
+  <button class="checkout-btn">Proceed to Checkout</button>
 `;
+
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+  if (totalItems > 0) {
+    window.location.href = 'checkout.html';
+  }
+  else{
+    alert("Your cart is empty");
+  }
+});
 
   localStorage.setItem('cart', JSON.stringify(cart));
   updateWishlistUI();

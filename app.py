@@ -29,6 +29,23 @@ client = MongoClient(app.config["MONGO_URI"])
 db = client["eshop"]
 products_collection = db["products"]
 
+@app.route('/products/<product_id>', methods=['GET'])
+def get_product(product_id):
+    try:
+        # Βρες το προϊόν με βάση το ObjectId
+        product = products_collection.find_one({"_id": ObjectId(product_id)})
+        if not product:
+            return jsonify({"error": "Product not found"}), 404
+
+        # Μετατροπή ObjectId σε string
+        product['_id'] = str(product['_id'])
+
+        return jsonify(product), 200
+    except Exception as e:
+        print("Error:", e)
+        return jsonify({"error": "Invalid product ID"}), 400
+
+
 @app.route("/products/search", methods=["GET"])
 def search_products():
     query = request.args.get("query")
@@ -110,8 +127,9 @@ def login_user():
     user = db["users"].find_one({"username": username, "password": password})
     if not user:
         return jsonify({"error": "Invalid username or password"}), 401
-
-    return jsonify({"message": "Login successful", "user_id": str(user["_id"])}), 200
+    
+    user["_id"] = str(user["_id"])
+    return jsonify({"message": "Login successful", "user":user}), 200
 
 
 

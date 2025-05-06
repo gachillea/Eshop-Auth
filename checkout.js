@@ -35,3 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     orderContainer.insertAdjacentHTML('beforeend', totalHTML);
   });
   
+  function senrOrder()
+  {
+    alert("The order was successful!\nPayment in cash when it arrives")
+  }

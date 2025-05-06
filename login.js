@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(data.error || 'Login failed');
         return;
       }
-
+      console.log(data["user"]);
       alert('Login successful!');
-      localStorage.setItem('username', username);
+      localStorage.setItem('user', data["user"]);
       window.location.href = 'index.html';
       
     } catch (err) {

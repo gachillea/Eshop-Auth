@@ -74,79 +74,79 @@ products = [
     },
     {
         "name": "Fila Disruptor II",
-        "image": "https://images.unsplash.com/photo-1593784991624-ec07fefb6c18",
+        "image": "img\1556130360-vaporfly-4-flyknit-running-shoe-v7G3FB.avif",
         "description": "Chunky sneakers with a retro vibe.",
-        "likes": 0,
+        "likes": 11,
         "price": 65.00
     },
     {
         "name": "Nike Air Max 270",
-        "image": "https://images.unsplash.com/photo-1605810031315-2a5b1d7a99b3",
+        "image": "img\68c4510c-d8f5-46d8-91cb-7b3cdc9dce69_1.129c3d1419b9235fad8a39cfdb47a1e2.webp",
         "description": "Maximum comfort with visible Air unit.",
-        "likes": 0,
+        "likes": 9,
         "price": 150.00
     },
     {
         "name": "Adidas NMD_R1",
-        "image": "https://images.unsplash.com/photo-1585584602121-256eff6db1ee",
+        "image": "img\nike-blackvarsity-redwhite-sweet-classic-leather-high-top-sneakers-product-1-10346662-141973395.webp",
         "description": "Street-ready sneakers with responsive Boost.",
-        "likes": 0,
+        "likes": 21,
         "price": 140.00
     },
     {
         "name": "Under Armour HOVR",
-        "image": "https://images.unsplash.com/photo-1595950657878-90af7e95b099",
+        "image": "img\14d11ee258558984aae7c5e2f9b04320.jpg",
         "description": "Connected shoes for tracking performance.",
-        "likes": 0,
+        "likes": 54,
         "price": 120.00
     },
     {
         "name": "Mizuno Wave Rider",
-        "image": "https://images.unsplash.com/photo-1600815751966-9f74b11edb3b",
+        "image": "img\3695ddaf-7394-4a0b-bd31-3d9e3936fcad_1.27c350e70a4a6a579ca7f9c74e3241d6.webp",
         "description": "Smooth ride and dynamic cushioning.",
-        "likes": 0,
+        "likes": 5,
         "price": 130.00
     },
     {
         "name": "Hoka One One Clifton",
-        "image": "https://images.unsplash.com/photo-1585584602121-256eff6db1ee",
+        "image": "img\th.jpe",
         "description": "Lightweight cushioning for long runs.",
-        "likes": 0,
+        "likes": 44,
         "price": 130.00
     },
     {
         "name": "Brooks Ghost 13",
-        "image": "https://images.unsplash.com/photo-1605810031315-2a5b1d7a99b3",
+        "image": "img\pexels-aman-jakhar-1124466.jpg.crdownload",
         "description": "Soft, smooth ride with balanced cushioning.",
-        "likes": 0,
+        "likes": 90,
         "price": 130.00
     },
     {
         "name": "Nike ZoomX Vaporfly",
-        "image": "https://images.unsplash.com/photo-1593784991624-ec07fefb6c18",
+        "image": "img\14d11ee258558984aae7c5e2f9b04320.jpg",
         "description": "Record-breaking racing shoes.",
-        "likes": 0,
+        "likes": 1,
         "price": 250.00
     },
     {
         "name": "Adidas Yeezy Boost 350",
-        "image": "https://images.unsplash.com/photo-1606813907984-3b18b0efb50e",
+        "image": "img\ClOquVt.jpg.crdownload",
         "description": "Fashion-forward with supreme comfort.",
-        "likes": 0,
+        "likes": 24,
         "price": 220.00
     },
     {
         "name": "Balenciaga Triple S",
-        "image": "https://images.unsplash.com/photo-1585386959984-a4155229d6d7",
+        "image": "img\nike-shoe-png-nike-running-shoes-png-image-1276.png.crdownload",
         "description": "Luxury sneakers with bold design.",
-        "likes": 0,
+        "likes": 22,
         "price": 950.00
     },
     {
         "name": "Common Projects Achilles",
-        "image": "https://images.unsplash.com/photo-1617056442047-b0e689c5e5d6",
+        "image": "img\nike-shoe-png-nike-running-shoes-png-image-1276.png.crdownload",
         "description": "Minimalist leather sneakers.",
-        "likes": 0,
+        "likes": 7,
         "price": 415.00
     }
 ]
