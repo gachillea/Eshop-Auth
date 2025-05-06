@@ -312,6 +312,7 @@ button.see-all {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
 
 }
 
@@ -344,6 +345,12 @@ button.see-all {
     align-items: center;
     background: linear-gradient(to bottom, black 0%, #ff6b6b 50%, black 100%);
     transition: background 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
 }
 
 /* Footer */
