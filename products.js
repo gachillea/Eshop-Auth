@@ -29,6 +29,7 @@ async function fetchProducts(searchTerm = '') {
 
 // Προβολή των προϊόντων στην οθόνη
 function displayProducts(products) {
+  const user = JSON.parse(localStorage.getItem("user"));
   const productList = document.querySelector('.product-list');
   productList.innerHTML = '';
 
@@ -50,7 +51,7 @@ function displayProducts(products) {
         <div class="product-footer">
           <span class="product-price">$${product.price.toFixed(2)}</span>
           <span class="like-count">
-            <i class="fa-solid fa-heart"></i> ${product.likes}
+            <i class="fa-solid fa-heart" style="color: ${user.likes.includes(product.id) ? 'red' : 'gray'}"></i> ${product.likes}
           </span>
           <button class="add-to-cart" onclick="addToCart('${product.id}')">
             <i class="fa-solid fa-cart-plus"></i> Add to Cart
@@ -64,23 +65,39 @@ function displayProducts(products) {
 
 // Toggle like για ένα προϊόν
 async function toggleLike(productId) {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   try {
-    const response = await fetch('http://localhost:5000/products/likes', {
+    const response = await fetch('http://localhost:5000/users/likes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ product_id: productId })
+      body: JSON.stringify({
+        user_id: user._id,
+        product_id: productId
+      })
     });
 
-    if (!response.ok) throw new Error('Failed to like product');
+    if (!response.ok) throw new Error('Failed to toggle like');
 
     const result = await response.json();
     console.log(result.message);
 
-    // Ξαναφόρτωσε τα προϊόντα για να εμφανιστεί το νέο count
+    // Refresh products to reflect like change
     fetchProducts();
   } catch (err) {
-    console.error('Error liking product:', err);
+    console.error('Error toggling like:', err);
   }
+  if (!user.likes.includes(productId)) {
+      user.likes.push(productId);
+    } else {
+      // Εάν έχει ήδη γίνει like, αφαίρεσέ το (toggle off)
+      user.likes = user.likes.filter(id => id !== productId);
+    }
+
+    // Ενημέρωση στο localStorage
+  localStorage.setItem("user", JSON.stringify(user));
+  console.log(JSON.stringify(user));
+  
 }
 
 // Εισαγωγή προϊόντων με βάση την αναζήτηση

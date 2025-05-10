@@ -61,26 +61,46 @@ def search_products():
 
     return jsonify(products), 200
 
-@app.route("/products/likes", methods=["POST"])
-def add_like():
+@app.route("/users/likes", methods=["POST"])
+def toggle_like():
     data = request.get_json()
-    if not data or "product_id" not in data:
-        return jsonify({"error": "Product ID is required"}), 400
+    user_id = data.get("user_id")
+    product_id = data.get("product_id")
+
+    if not user_id or not product_id:
+        return jsonify({"error": "user_id and product_id required"}), 400
 
     try:
-        product_id = ObjectId(data["product_id"])  # Convert product_id to ObjectId
+        user_obj_id = ObjectId(user_id)
+        product_obj_id = ObjectId(product_id)
     except Exception:
-        return jsonify({"error": "Invalid Product ID format"}), 400
+        return jsonify({"error": "Invalid ID format"}), 400
 
-    result = products_collection.update_one(
-        {"_id": product_id},
-        {"$inc": {"likes": 1}}
-    )
+    user = db["users"].find_one({"_id": user_obj_id})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
 
-    if result.matched_count == 0:
-        return jsonify({"error": "Product not found"}), 404
-
-    return jsonify({"message": "Like added successfully"}), 200
+    # Αν υπάρχει ήδη, κάνε unlike
+    if product_id in user.get("likes", []):
+        db["users"].update_one(
+            {"_id": user_obj_id},
+            {"$pull": {"likes": product_id}}
+        )
+        db["products"].update_one(
+            {"_id": product_obj_id},
+            {"$inc": {"likes": -1}}
+        )
+        return jsonify({"message": "Product unliked"}), 200
+    else:
+        db["users"].update_one(
+            {"_id": user_obj_id},
+            {"$addToSet": {"likes": product_id}}
+        )
+        db["products"].update_one(
+            {"_id": product_obj_id},
+            {"$inc": {"likes": 1}}
+        )
+        return jsonify({"message": "Product liked"}), 200
 
 @app.route("/products/popular-products", methods=["GET"])
 def get_popular_products():
@@ -117,20 +137,182 @@ def register_user():
 @app.route("/users/login", methods=["POST"])
 def login_user():
     data = request.get_json()
-    if not data or "username" not in data or "password" not in data:
-        return jsonify({"error": "Username and password are required"}), 400
+    username = data.get("username")
+    password = data.get("password")
 
-    username = data["username"]
-    password = data["password"]
+    if not username or not password:
+        return jsonify({"error": "Username and password required"}), 400
 
-    # Check if the user exists and the password matches
-    user = db["users"].find_one({"username": username, "password": password})
-    if not user:
-        return jsonify({"error": "Invalid username or password"}), 401
-    
+    user = db["users"].find_one({"username": username})
+    if not user or user.get("password") != password:
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    # Μετατροπή όλων των ObjectId σε string, π.χ. και στο cart αν έχει
     user["_id"] = str(user["_id"])
-    return jsonify({"message": "Login successful", "user":user}), 200
+    if "cart" in user:
+        user["cart"] = [str(pid) for pid in user["cart"]]
 
+    return jsonify({"message": "Login successful", "user": user}), 200
+
+
+@app.route("/users/cart", methods=["POST"])
+def add_to_cart():
+    data = request.get_json()
+    if not data or "user_id" not in data or "product_id" not in data:
+        return jsonify({"error": "User ID and Product ID are required"}), 400
+
+    try:
+        user_id = ObjectId(data["user_id"])
+        product_id = ObjectId(data["product_id"])
+    except:
+        return jsonify({"error": "Invalid ID format"}), 400
+
+    user = db["users"].find_one({"_id": user_id})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    product = products_collection.find_one({"_id": product_id})
+    if not product:
+        return jsonify({"error": "Product not found"}), 404
+
+    # Προετοίμασε cart entry
+    cart_entry = {"product_id": product_id}
+
+    # Δες αν υπάρχει ήδη το προϊόν στο καλάθι
+    existing_item = next((item for item in user.get("cart", []) if item["product_id"] == product_id), None)
+
+    if existing_item:
+        # Αν υπάρχει, αύξησε την ποσότητα
+        db["users"].update_one(
+            {"_id": user_id, "cart.product_id": product_id},
+            {"$inc": {"cart.$.quantity": 1}}
+        )
+    else:
+        # Αν όχι, πρόσθεσέ το με quantity 1
+        cart_entry["quantity"] = 1
+        db["users"].update_one(
+            {"_id": user_id},
+            {"$push": {"cart": cart_entry}}
+        )
+
+    return jsonify({"message": "Product added to cart"}), 200
+
+@app.route('/users/cart', methods=['PATCH'])
+def update_cart_item():
+    data = request.get_json()
+    user_id = data.get("user_id")
+    product_id = data.get("product_id")
+    quantity = data.get("quantity")
+
+    if not all([user_id, product_id]) or quantity is None:
+        return jsonify({"error": "Missing data"}), 400
+
+    try:
+        user_id = ObjectId(user_id)
+        product_id = ObjectId(product_id)
+
+        if quantity <= 0:
+            result = db["users"].update_one(
+                {"_id": user_id},
+                {"$pull": {"cart": {"product_id": product_id}}}
+            )
+            print("Removed item:", result.modified_count)
+            return jsonify({"message": "Item removed"}), 200
+
+        result = db["users"].update_one(
+            {"_id": user_id, "cart.product_id": product_id},
+            {"$set": {"cart.$.quantity": quantity}}
+        )
+
+        print("Modified count:", result.modified_count)
+
+        if result.modified_count == 0:
+            user_doc = db["users"].find_one({"_id": user_id})
+            print("Cart content:", user_doc.get("cart", []))
+            return jsonify({"error": "Cart item not updated"}), 404
+
+        return jsonify({"message": "Cart item updated"}), 200
+
+    except Exception as e:
+        print("PATCH error:", e)
+        return jsonify({"error": str(e)}), 500
+
+
+
+
+
+
+@app.route("/users/cart", methods=["GET"])
+def get_cart():
+    user_id = request.args.get("user_id")
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    try:
+        user_id = ObjectId(user_id)
+    except:
+        return jsonify({"error": "Invalid User ID format"}), 400
+
+    user = db["users"].find_one({"_id": user_id})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    cart = user.get("cart", [])
+
+    # Αν cart είναι [{product_id, quantity}], κάνε join με products
+    products = []
+    for item in cart:
+        product = products_collection.find_one({"_id": item["product_id"]})
+        if product:
+            product["_id"] = str(product["_id"])
+            product["quantity"] = item["quantity"]
+            products.append(product)
+
+    return jsonify(products), 200
+
+@app.route('/users/cart', methods=['DELETE'])
+def remove_from_cart():
+    data = request.get_json()
+    user_id = data.get('user_id')
+    product_id = data.get('product_id')
+
+    if not user_id or not product_id:
+        return jsonify({'error': 'Missing data'}), 400
+
+    db["users"].update_one(
+        {"_id": ObjectId(user_id)},
+        {"$pull": {"cart": {"product_id": ObjectId(product_id)}}}
+    )
+
+    return jsonify({"message": "Item removed"}), 200
+
+
+
+@app.route("/users/liked-products", methods=["GET"])
+def get_liked_products():
+    user_id = request.args.get("user_id")
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    try:
+        user_obj_id = ObjectId(user_id)
+    except Exception:
+        return jsonify({"error": "Invalid User ID format"}), 400
+
+    user = db["users"].find_one({"_id": user_obj_id})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    liked_product_ids = user.get("likes", [])
+
+    # Μετατροπή σε ObjectId
+    product_object_ids = [ObjectId(pid) for pid in liked_product_ids]
+
+    liked_products = list(products_collection.find({"_id": {"$in": product_object_ids}}))
+    for product in liked_products:
+        product["_id"] = str(product["_id"])
+
+    return jsonify(liked_products), 200
 
 
 if __name__ == "__main__":

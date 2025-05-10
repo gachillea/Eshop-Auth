@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       console.log(data["user"]);
       alert('Login successful!');
-      localStorage.setItem('user', data["user"]);
+      localStorage.setItem('user', JSON.stringify(data["user"]));
       window.location.href = 'index.html';
       
     } catch (err) {
