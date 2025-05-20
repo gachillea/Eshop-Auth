@@ -74,42 +74,42 @@ products = [
     },
     {
         "name": "Fila Disruptor II",
-        "image": "img\1556130360-vaporfly-4-flyknit-running-shoe-v7G3FB.avif",
+        "image": "img\20230316091638_nike_react_infinity_run_flyknit_3_dz3014_401_andrika_athlitika_papoutsia_running_college_navy_midnight_navy_black_metallic_silver.jpeg",
         "description": "Chunky sneakers with a retro vibe.",
         "likes": 11,
         "price": 65.00
     },
     {
         "name": "Nike Air Max 270",
-        "image": "img\68c4510c-d8f5-46d8-91cb-7b3cdc9dce69_1.129c3d1419b9235fad8a39cfdb47a1e2.webp",
+        "image": "img\papoytsia-nike-air-max-2090-se-2-gs-da2417-100-white-bright-mango.jpg",
         "description": "Maximum comfort with visible Air unit.",
         "likes": 9,
         "price": 150.00
     },
     {
         "name": "Adidas NMD_R1",
-        "image": "img\nike-blackvarsity-redwhite-sweet-classic-leather-high-top-sneakers-product-1-10346662-141973395.webp",
+        "image": "img\CK6357-001_00336_1.jpg",
         "description": "Street-ready sneakers with responsive Boost.",
         "likes": 21,
         "price": 140.00
     },
     {
         "name": "Under Armour HOVR",
-        "image": "img\14d11ee258558984aae7c5e2f9b04320.jpg",
+        "image": "img\16849169_33513087_1000.webp",
         "description": "Connected shoes for tracking performance.",
         "likes": 54,
         "price": 120.00
     },
     {
         "name": "Mizuno Wave Rider",
-        "image": "img\3695ddaf-7394-4a0b-bd31-3d9e3936fcad_1.27c350e70a4a6a579ca7f9c74e3241d6.webp",
+        "image": "img\papoytsia-nike-air-max-up-dc9206-700-chutney-black-white.jpg",
         "description": "Smooth ride and dynamic cushioning.",
         "likes": 5,
         "price": 130.00
     },
     {
         "name": "Hoka One One Clifton",
-        "image": "img\th.jpe",
+        "image": "img\papoytsia-nike-air-max-2090-eoi-da9357-100-summit-white-racer-blue-black.jpg",
         "description": "Lightweight cushioning for long runs.",
         "likes": 44,
         "price": 130.00
@@ -123,28 +123,28 @@ products = [
     },
     {
         "name": "Nike ZoomX Vaporfly",
-        "image": "img\14d11ee258558984aae7c5e2f9b04320.jpg",
+        "image": "img\fixedratio_20231215093303_nike_athlitika_paidika_papoutsia_running_dunk_low_fv7021_400_mple.jpeg",
         "description": "Record-breaking racing shoes.",
         "likes": 1,
         "price": 250.00
     },
     {
         "name": "Adidas Yeezy Boost 350",
-        "image": "img\ClOquVt.jpg.crdownload",
+        "image": "img\papoytsia-nike-w-air-max-270-react-ct1287-600-barely-rose-white-black.jpg",
         "description": "Fashion-forward with supreme comfort.",
         "likes": 24,
         "price": 220.00
     },
     {
         "name": "Balenciaga Triple S",
-        "image": "img\nike-shoe-png-nike-running-shoes-png-image-1276.png.crdownload",
+        "image": "img\papoytsia-nike-w-air-max-270-react-ct1287-600-barely-rose-white-black.jpg",
         "description": "Luxury sneakers with bold design.",
         "likes": 22,
         "price": 950.00
     },
     {
         "name": "Common Projects Achilles",
-        "image": "img\nike-shoe-png-nike-running-shoes-png-image-1276.png.crdownload",
+        "image": "img\papoytsia-nike-w-air-max-270-react-ct1287-600-barely-rose-white-black.jpg",
         "description": "Minimalist leather sneakers.",
         "likes": 7,
         "price": 415.00
