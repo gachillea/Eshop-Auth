@@ -4,14 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
     const username = form.username.value;
+    const email = form.email.value;
     const password = form.password.value;
+
+    // Basic validation
+    if (password.length < 6) {
+      alert('Password must be at least 6 characters long!');
+      return;
+    }
 
     try {
       const response = await fetch('http://127.0.0.1:5000/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          username,
+          email,
+          password
+        })
       });
 
       const data = await response.json();
@@ -21,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      alert('Registration successful!');
+      alert('Registration successful! Welcome to Nike!');
       window.location.href = 'login.html';
     } catch (err) {
       console.error('Registration error:', err);
-      alert('An error occurred while registering.');
+      alert('An error occurred while registering. Please try again.');
     }
   });
 });

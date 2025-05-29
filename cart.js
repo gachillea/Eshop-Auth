@@ -147,7 +147,7 @@ async function updateQuantity(productId, newQuantity) {
         quantity: product.quantity
       })
     });
-    
+
 
     if (!response.ok) {
       throw new Error('Failed to update cart on server');
@@ -170,6 +170,9 @@ function updateCartUI() {
   const safeCart = Array.isArray(cart) ? cart : [];
   const totalItems = safeCart.reduce((sum, item) => sum + (item.quantity || 0), 0);
   const total = safeCart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 0)), 0);
+
+  // Save cart to localStorage so checkout page can access it
+  localStorage.setItem('cart', JSON.stringify(safeCart));
 
   cartCount.textContent = totalItems;
   cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
@@ -202,10 +205,11 @@ function updateCartUI() {
 
   document.querySelector('.checkout-btn').addEventListener('click', () => {
     if (totalItems > 0) {
+      // Make sure cart is saved to localStorage before navigating
+      localStorage.setItem('cart', JSON.stringify(safeCart));
       window.location.href = 'checkout.html';
     } else {
       alert("Your cart is empty");
     }
   });
-
 }

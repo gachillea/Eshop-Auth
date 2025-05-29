@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Nike Eshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <script src="contact.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo"><img src="img/nike-logo.png" alt="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+                <a href="products.html"><button class="btn-new">Store</button></a>
+                <li><a href="index.html#feedback">Feedback</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-icon">
+            <span class="cart-icon" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+            </span>
+        </div>
+
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button onclick="toggleCart()" class="close-cart">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="cart-items">
+                <!-- Cart items will be inserted here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total"></div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact-main">
+        <div class="contact-hero">
+            <div class="hero-content">
+                <h1>Get In Touch</h1>
+                <p>We're here to help you step into greatness. Reach out to us!</p>
+            </div>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Visit Us</h3>
+                                <p>123 StepWise Street<br>Athens, Greece 12345</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Call Us</h3>
+                                <p>+30 123 456 7890<br>Mon-Fri 9AM-6PM</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Email Us</h3>
+                                <p>support@nikeshop.com<br>sales@nikeshop.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Store Hours</h3>
+                                <p>Mon-Sat: 10AM-8PM<br>Sunday: 12PM-6PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">
+                                    <i class="fas fa-user"></i> First Name
+                                </label>
+                                <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">
+                                    <i class="fas fa-user"></i> Last Name
+                                </label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="john.doe@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Phone Number
+                            </label>
+                            <input type="tel" id="phone" name="phone" placeholder="+30 123 456 7890">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">
+                                <i class="fas fa-tag"></i> Subject
+                            </label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Choose a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="product">Product Question</option>
+                                <option value="order">Order Support</option>
+                                <option value="return">Returns & Exchanges</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment"></i> Message
+                            </label>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can I track my order?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can track your order using the tracking number provided in your order confirmation email. Visit our tracking page and enter your order number.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is your return policy?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a 30-day return policy for unworn items with original tags. Returns are free and easy - just contact our support team to get started.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer international shipping?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We ship worldwide. Shipping costs and delivery times vary by location. International customers are responsible for any customs duties.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I find the right size?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Use our size guide available on each product page. If you're between sizes, we recommend sizing up. Our customer service team can also help with sizing questions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="first-part">
+                <div class="logo-footer">
+                    <img class="footer-img" src="img/nike-logo.png" alt="nike-logo">
+                    <p class="p-footer">Nikos Samaras</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Products</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#feedback">Feedback</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="products.html">Store</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">Size Guide</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Returns</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Account</h4>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="#">My Orders</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="copyright">
+                ©Copyright. All rights reserved<br>
+                Nikos Samaras, Axilleas Geriogiopoulos, Giorgos Seretis, Dimitris Gioupsanis
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>
