@@ -1,5 +1,3 @@
-// Instructions: Restore the original products.js file and update only the displayProducts function to use the new card design
-
 // Fetch products από το backend με αναζήτηση
 async function fetchProducts(searchTerm = '') {
   try {
@@ -55,11 +53,13 @@ function displayProducts(products) {
         <div class="price-rating-container">
           <p class="price-container">
             <span class="current-price">$${product.price.toFixed(2)}</span>
-            <span class="original-price">$${(product.price * 1.39).toFixed(2)}</span>
+            <span class="original-price">$${(product.price * 1.6393).toFixed(2)}</span>
           </p>
           <div class="rating-container">
-            ${generateStars(product.likes)}
-            <span class="rating-badge">${Math.min(5, product.likes || 1).toFixed(1)}</span>
+            <span class="like-count">
+            <i class="fa-solid fa-heart" style="color: ${user.likes.includes(product.id) ? 'red' : 'gray'}"></i> ${product.likes}
+          </span>
+
           </div>
         </div>
         <button class="add-to-cart-btn" onclick="addToCart('${product.id}')">
@@ -73,22 +73,12 @@ function displayProducts(products) {
     productList.appendChild(productCard);
   });
 
-  // Helper function to generate star ratings
-  function generateStars(rating) {
-    const starCount = Math.min(5, rating || 1);
-    let stars = '';
-    for (let i = 0; i < 5; i++) {
-      stars += `<svg class="star-icon ${i < starCount ? 'filled' : ''}" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-      </svg>`;
-    }
-    return stars;
-  }
 }
 
 // Toggle like για ένα προϊόν
 async function toggleLike(productId) {
   const user = JSON.parse(localStorage.getItem("user"));
+  const scrollPosition = window.scrollY;
 
   try {
     const response = await fetch('http://localhost:5000/users/likes', {
@@ -107,6 +97,10 @@ async function toggleLike(productId) {
 
     // Refresh products to reflect like change
     fetchProducts();
+
+    // Επαναφορά scroll μετά την ανανέωση
+    window.scrollTo({ top: scrollPosition, behavior: 'auto' });
+
   } catch (err) {
     console.error('Error toggling like:', err);
   }
